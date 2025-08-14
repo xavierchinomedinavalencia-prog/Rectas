@@ -1,53 +1,72 @@
 body {
     font-family: Arial, sans-serif;
     text-align: center;
-    background: radial-gradient(circle, #005baa, #ffcc00);
-    color: white;
+    background: #f4f4f4;
+    margin: 0;
 }
 
-h1, h2 {
-    color: white;
-}
-
-.input-group {
-    margin: 20px;
+.container {
+    background: white;
+    padding: 20px;
+    margin: 40px auto;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 800px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
 
 label {
-    margin: 10px;
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
 }
 
 input {
-    width: 80px;
+    width: 60px;
     padding: 5px;
-    border-radius: 5px;
-    border: none;
+    margin: 5px;
+    text-align: center;
 }
 
 button {
-    padding: 8px 15px;
-    background: #ffcc00;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background: #0f766e;
+    color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 
-table {
-    margin: 20px auto;
-    border-collapse: collapse;
-    background: white;
-    color: black;
+button:hover {
+    background: #0c5f56;
 }
 
-th, td {
-    border: 1px solid #ccc;
-    padding: 8px 12px;
+.resultado-grafica {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.resultados {
+    text-align: left;
+    background: #f9f9f9;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    min-width: 200px;
+}
+
+.grafica-container {
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
 }
 
 canvas {
     background: white;
     border-radius: 10px;
-    margin-top: 15px;
-    max-width: 300px;
-    max-height: 220px;
 }

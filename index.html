@@ -3,27 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cálculo de la recta</title>
+    <title>Cálculo de Recta</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fraction.js/4.2.0/fraction.min.js"></script>
 </head>
 <body>
-    <h1>Cálculo de la recta</h1>
+    <div class="container">
+        <h2>Cálculo de la recta</h2>
+        <label>Punto 1 (x1, y1):</label>
+        <input type="number" id="x1"> , <input type="number" id="y1">
+        
+        <label>Punto 2 (x2, y2):</label>
+        <input type="number" id="x2"> , <input type="number" id="y2">
+        
+        <button onclick="calcularRecta()">Calcular</button>
 
-    <div class="input-group">
-        <label>X1: <input type="number" id="x1"></label>
-        <label>Y1: <input type="number" id="y1"></label>
-        <label>X2: <input type="number" id="x2"></label>
-        <label>Y2: <input type="number" id="y2"></label>
-        <button onclick="calcularTodo()">Calcular</button>
+        <div class="resultado-grafica">
+            <div class="resultados">
+                <p><b>Pendiente (m):</b> <span id="pendiente"></span></p>
+                <p><b>Ecuación general:</b> <span id="ecuacion"></span></p>
+                <p><b>Punto medio:</b> <span id="puntoMedio"></span></p>
+            </div>
+            <div class="grafica-container">
+                <canvas id="grafica" width="300" height="220"></canvas>
+            </div>
+        </div>
     </div>
-
-    <div id="resultado"></div>
-
-    <h2>Gráfica</h2>
-    <center>
-        <canvas id="grafica" width="300" height="220"></canvas>
-    </center>
 
     <script src="script.js"></script>
 </body>
