@@ -1,8 +1,15 @@
 let chart;
 
 function fraccionSimplificada(valor) {
-    let frac = new Fraction(valor);
-    return frac.d === 1 ? `${frac.n}` : `${frac.n}/${frac.d}`;
+    if (Number.isInteger(valor)) {
+        return valor.toString();
+    }
+    try {
+        let frac = new Fraction(valor);
+        return frac.d === 1 ? `${frac.n}` : `${frac.n}/${frac.d}`;
+    } catch {
+        return valor.toFixed(2); // Si hay error, mostrar decimal
+    }
 }
 
 function calcularRecta() {
@@ -17,35 +24,28 @@ function calcularRecta() {
     }
 
     if (x1 === x2) {
-        alert("La pendiente es indefinida (recta vertical)");
+        document.getElementById("pendiente").textContent = "Indefinida (recta vertical)";
+        document.getElementById("ecuacion").textContent = "x = " + fraccionSimplificada(x1);
+        document.getElementById("puntoMedio").textContent = `(${fraccionSimplificada((x1+x2)/2)}, ${fraccionSimplificada((y1+y2)/2)})`;
         return;
     }
 
-    // Calcular pendiente
     const m = (y2 - y1) / (x2 - x1);
-    document.getElementById("pendiente").textContent = fraccionSimplificada(m);
-
-    // Calcular intercepto
     const b = y1 - m * x1;
+
+    document.getElementById("pendiente").textContent = fraccionSimplificada(m);
     document.getElementById("ecuacion").textContent = `y = ${fraccionSimplificada(m)}x + ${fraccionSimplificada(b)}`;
+    document.getElementById("puntoMedio").textContent = `(${fraccionSimplificada((x1+x2)/2)}, ${fraccionSimplificada((y1+y2)/2)})`;
 
-    // Calcular punto medio
-    const xm = (x1 + x2) / 2;
-    const ym = (y1 + y2) / 2;
-    document.getElementById("puntoMedio").textContent = `(${fraccionSimplificada(xm)}, ${fraccionSimplificada(ym)})`;
-
-    // Graficar
-    graficarRecta(m, b, x1, x2);
+    graficarRecta(m, b);
 }
 
-function graficarRecta(m, b, x1, x2) {
+function graficarRecta(m, b) {
     const ctx = document.getElementById("grafica").getContext("2d");
 
-    let xValores = [];
-    let yValores = [];
+    let puntos = [];
     for (let x = -10; x <= 10; x += 0.5) {
-        xValores.push(x);
-        yValores.push(m * x + b);
+        puntos.push({ x: x, y: m * x + b });
     }
 
     if (chart) chart.destroy();
@@ -53,23 +53,24 @@ function graficarRecta(m, b, x1, x2) {
     chart = new Chart(ctx, {
         type: 'line',
         data: {
-            labels: xValores,
             datasets: [{
                 label: 'Recta',
-                data: yValores,
+                data: puntos,
                 borderColor: '#0f766e',
                 borderWidth: 2,
                 fill: false,
-                tension: 0
+                showLine: true,
+                parsing: false
             }]
         },
         options: {
             responsive: false,
-            maintainAspectRatio: true,
-            aspectRatio: 1.4,
             scales: {
-                x: { type: 'linear', position: 'bottom', min: -10, max: 10 },
+                x: { type: 'linear', min: -10, max: 10 },
                 y: { min: -10, max: 10 }
+            },
+            plugins: {
+                legend: { display: false }
             }
         }
     });
