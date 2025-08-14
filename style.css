@@ -1,75 +1,53 @@
 body {
     font-family: Arial, sans-serif;
-    background: radial-gradient(circle, #36d20f, #ffcc00);
-    margin: 0;
-    padding: 0;
+    text-align: center;
+    background: radial-gradient(circle, #005baa, #ffcc00);
     color: white;
 }
 
-.container {
-    max-width: 500px;
-    margin: 50px auto;
-    background: rgba(0,0,0,0.6);
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.4);
+h1, h2 {
+    color: white;
 }
 
-h1 {
-    text-align: center;
-    color: #ffffff;
+.input-group {
+    margin: 20px;
 }
 
-.inputs {
-    display: grid;
-    gap: 10px;
+label {
+    margin: 10px;
 }
 
 input {
-    padding: 8px;
+    width: 80px;
+    padding: 5px;
+    border-radius: 5px;
     border: none;
-    border-radius: 6px;
-    text-align: center;
-}
-
-.buttons {
-    text-align: center;
-    margin-top: 15px;
 }
 
 button {
-    background: #ffffff;
-    color: #000000;
+    padding: 8px 15px;
+    background: #ffcc00;
     border: none;
-    padding: 10px 15px;
-    border-radius: 6px;
+    border-radius: 5px;
     cursor: pointer;
-    font-weight: bold;
-}
-
-button:hover {
-    background: #ffc107;
-}
-
-#resultado {
-    margin-top: 20px;
-    padding: 10px;
-    background: #fff;
-    color: black;
-    border-radius: 8px;
-    text-align: center;
-    font-weight: bold;
 }
 
 table {
-    width: 100%;
+    margin: 20px auto;
     border-collapse: collapse;
-}
-
-table, th, td {
-    border: 1px solid black;
+    background: white;
+    color: black;
 }
 
 th, td {
-    padding: 8px;
+    border: 1px solid #ccc;
+    padding: 8px 12px;
+}
+
+canvas {
+    background: white;
+    border-radius: 10px;
+    margin-top: 15px;
+    max-width: 300px;
+    max-height: 220px;
 }

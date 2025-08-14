@@ -3,30 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cálculo - Recta</title>
+    <title>Cálculo de la recta</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <div class="container">
-        <h1>Calculadora de Recta</h1>
-        <p>Ingresa dos puntos y obtén pendiente, ecuación y punto medio.</p>
-        
-        <div class="inputs">
-            <label>Punto 1 (x₁, y₁):</label>
-            <input type="number" id="x1" placeholder="x₁">
-            <input type="number" id="y1" placeholder="y₁">
-            
-            <label>Punto 2 (x₂, y₂):</label>
-            <input type="number" id="x2" placeholder="x₂">
-            <input type="number" id="y2" placeholder="y₂">
-        </div>
-        
-        <div class="buttons">
-            <button onclick="calcularTodo()">Calcular</button>
-        </div>
+    <h1>Cálculo de la recta</h1>
 
-        <div id="resultado"></div>
+    <div class="input-group">
+        <label>X1: <input type="number" id="x1"></label>
+        <label>Y1: <input type="number" id="y1"></label>
+        <label>X2: <input type="number" id="x2"></label>
+        <label>Y2: <input type="number" id="y2"></label>
+        <button onclick="calcularTodo()">Calcular</button>
     </div>
+
+    <div id="resultado"></div>
+
+    <h2>Gráfica</h2>
+    <center>
+        <canvas id="grafica" width="300" height="220"></canvas>
+    </center>
+
     <script src="script.js"></script>
 </body>
 </html>
